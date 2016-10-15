@@ -2,7 +2,7 @@
 
 Summary:	Engine for running games developed with AGS (Adventure Game Studio)
 Name:		ags
-Version:	3.4.0.12
+Version:	3.4.1
 %if %git
 Release:	0.%git.1
 Source0:	%{name}-%{git}.tar.xz
@@ -10,7 +10,6 @@ Source0:	%{name}-%{git}.tar.xz
 Release:	1
 Source0:	https://github.com/adventuregamestudio/ags/archive/v.%{version}.tar.gz
 %endif
-Patch0:		ags-3.4.0.12-compile.patch
 License:	Artistic 2.0
 Group:		Games/Adventure
 Url:		http://github.com/adventuregamestudio
@@ -39,7 +38,8 @@ Engine for running games developed with AGS (Adventure Game Studio)
 %apply_patches
 
 %build
-make -C Engine
+# Force clang -- gcc 6.x miscompiles ags
+make -C Engine CC=clang CXX=clang++
 
 %install
 mkdir -p %{buildroot}%{_bindir}
