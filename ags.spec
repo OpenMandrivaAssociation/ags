@@ -17,6 +17,7 @@ BuildRequires:	make
 BuildRequires:	pkgconfig(allegro)
 BuildRequires:	dumb-devel
 BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
