@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
+BuildRequires:	pkgconfig(xxf86vm)
 
 %description
 Engine for running games developed with AGS (Adventure Game Studio)
