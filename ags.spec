@@ -8,7 +8,7 @@ Release:	1.%git.1
 Source0:	%{name}-%{git}.tar.xz
 %else
 Release:	1
-Source0:	https://github.com/adventuregamestudio/ags/archive/v.%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/adventuregamestudio/ags/archive/v.%{version}/%{name}-v.%{version}.tar.gz
 %endif
 License:	Artistic 2.0
 Group:		Games/Adventure
