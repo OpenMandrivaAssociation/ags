@@ -38,7 +38,7 @@ Engine for running games developed with AGS (Adventure Game Studio)
 %else
 %setup -qn ags-v.%{version}
 %endif
-%apply_patches
+%autopatch -p1
 
 %build
 # Force clang -- gcc 6.x miscompiles ags
