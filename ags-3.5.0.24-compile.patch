@@ -1,0 +1,122 @@
+diff -up ags-v.3.5.0.24/Common/font/fonts.cpp.omv~ ags-v.3.5.0.24/Common/font/fonts.cpp
+--- ags-v.3.5.0.24/Common/font/fonts.cpp.omv~	2020-04-10 15:34:41.491688133 +0200
++++ ags-v.3.5.0.24/Common/font/fonts.cpp	2020-04-10 15:34:47.558771653 +0200
+@@ -22,6 +22,7 @@
+ #include "gfx/bitmap.h"
+ #include "gui/guidefines.h" // MAXLINE
+ #include "util/string_utils.h"
++#include <cstdio>
+ 
+ #define STD_BUFFER_SIZE 3000
+ 
+diff -up ags-v.3.5.0.24/Common/game/main_game_file.cpp.omv~ ags-v.3.5.0.24/Common/game/main_game_file.cpp
+--- ags-v.3.5.0.24/Common/game/main_game_file.cpp.omv~	2020-04-10 15:34:56.393893152 +0200
++++ ags-v.3.5.0.24/Common/game/main_game_file.cpp	2020-04-10 15:35:01.426962298 +0200
+@@ -28,6 +28,7 @@
+ #include "util/path.h"
+ #include "util/string_compat.h"
+ #include "util/string_utils.h"
++#include <cstdio>
+ 
+ namespace AGS
+ {
+diff -up ags-v.3.5.0.24/Engine/ac/global_debug.cpp.omv~ ags-v.3.5.0.24/Engine/ac/global_debug.cpp
+--- ags-v.3.5.0.24/Engine/ac/global_debug.cpp.omv~	2020-04-10 15:31:01.650605343 +0200
++++ ags-v.3.5.0.24/Engine/ac/global_debug.cpp	2020-04-10 15:31:21.895894485 +0200
+@@ -38,6 +38,7 @@
+ #include "gfx/bitmap.h"
+ #include "gfx/graphicsdriver.h"
+ #include "main/graphics_mode.h"
++#include <cstdio>
+ 
+ using namespace AGS::Common;
+ using namespace AGS::Engine;
+diff -up ags-v.3.5.0.24/Engine/ac/global_display.cpp.omv~ ags-v.3.5.0.24/Engine/ac/global_display.cpp
+--- ags-v.3.5.0.24/Engine/ac/global_display.cpp.omv~	2020-04-10 15:31:31.674033707 +0200
++++ ags-v.3.5.0.24/Engine/ac/global_display.cpp	2020-04-10 15:31:38.269127454 +0200
+@@ -31,6 +31,7 @@
+ #include "debug/debug_log.h"
+ #include "game/roomstruct.h"
+ #include "main/game_run.h"
++#include <cstdio>
+ 
+ using namespace AGS::Common;
+ 
+diff -up ags-v.3.5.0.24/Engine/ac/gui.cpp.omv~ ags-v.3.5.0.24/Engine/ac/gui.cpp
+--- ags-v.3.5.0.24/Engine/ac/gui.cpp.omv~	2020-04-10 15:31:57.371398299 +0200
++++ ags-v.3.5.0.24/Engine/ac/gui.cpp	2020-04-10 15:32:03.256481541 +0200
+@@ -45,6 +45,7 @@
+ #include "ac/dynobj/cc_guiobject.h"
+ #include "script/runtimescriptvalue.h"
+ #include "util/string_compat.h"
++#include <cstdio>
+ 
+ 
+ using namespace AGS::Common;
+diff -up ags-v.3.5.0.24/Engine/ac/parser.cpp.omv~ ags-v.3.5.0.24/Engine/ac/parser.cpp
+--- ags-v.3.5.0.24/Engine/ac/parser.cpp.omv~	2020-04-10 15:32:16.923674501 +0200
++++ ags-v.3.5.0.24/Engine/ac/parser.cpp	2020-04-10 15:32:21.527739394 +0200
+@@ -22,6 +22,7 @@
+ #include "debug/debug_log.h"
+ #include "util/string.h"
+ #include "util/string_compat.h"
++#include <cstdio>
+ 
+ using namespace AGS::Common;
+ 
+diff -up ags-v.3.5.0.24/Engine/ac/string.cpp.omv~ ags-v.3.5.0.24/Engine/ac/string.cpp
+--- ags-v.3.5.0.24/Engine/ac/string.cpp.omv~	2020-04-10 15:32:50.167141841 +0200
++++ ags-v.3.5.0.24/Engine/ac/string.cpp	2020-04-10 15:32:55.180212076 +0200
+@@ -24,6 +24,7 @@
+ #include "debug/debug_log.h"
+ #include "script/runtimescriptvalue.h"
+ #include "util/string_compat.h"
++#include <cstdio>
+ 
+ extern GameSetupStruct game;
+ extern GameState play;
+diff -up ags-v.3.5.0.24/Engine/ac/translation.cpp.omv~ ags-v.3.5.0.24/Engine/ac/translation.cpp
+--- ags-v.3.5.0.24/Engine/ac/translation.cpp.omv~	2020-04-10 15:33:01.117295179 +0200
++++ ags-v.3.5.0.24/Engine/ac/translation.cpp	2020-04-10 15:33:06.334368134 +0200
+@@ -26,6 +26,8 @@
+ #include "util/misc.h"
+ #include "util/stream.h"
+ #include "core/assetmanager.h"
++#include <cstdio>
++
+ 
+ using namespace AGS::Common;
+ 
+diff -up ags-v.3.5.0.24/Engine/debug/filebasedagsdebugger.cpp.omv~ ags-v.3.5.0.24/Engine/debug/filebasedagsdebugger.cpp
+--- ags-v.3.5.0.24/Engine/debug/filebasedagsdebugger.cpp.omv~	2020-04-10 15:33:14.145477244 +0200
++++ ags-v.3.5.0.24/Engine/debug/filebasedagsdebugger.cpp	2020-04-10 15:33:23.355605713 +0200
+@@ -18,6 +18,7 @@
+ #include "util/textstreamwriter.h"
+ #include "util/wgt2allg.h"              // exists()
+ #include "platform/base/agsplatformdriver.h"
++#include <cstdio>
+ 
+ using AGS::Common::Stream;
+ using AGS::Common::TextStreamWriter;
+diff -up ags-v.3.5.0.24/Engine/gui/guidialog.cpp.omv~ ags-v.3.5.0.24/Engine/gui/guidialog.cpp
+--- ags-v.3.5.0.24/Engine/gui/guidialog.cpp.omv~	2020-04-10 15:33:37.528803032 +0200
++++ ags-v.3.5.0.24/Engine/gui/guidialog.cpp	2020-04-10 15:33:45.098908240 +0200
+@@ -24,6 +24,7 @@
+ #include "gfx/bitmap.h"
+ #include "gfx/graphicsdriver.h"
+ #include "debug/debug_log.h"
++#include <cstdio>
+ 
+ using namespace AGS::Common;
+ using namespace AGS::Engine;
+diff -up ags-v.3.5.0.24/Engine/script/cc_instance.cpp.omv~ ags-v.3.5.0.24/Engine/script/cc_instance.cpp
+--- ags-v.3.5.0.24/Engine/script/cc_instance.cpp.omv~	2020-04-10 15:34:15.870334616 +0200
++++ ags-v.3.5.0.24/Engine/script/cc_instance.cpp	2020-04-10 15:34:22.289423309 +0200
+@@ -35,6 +35,7 @@
+ #include "ac/statobj/staticarray.h"
+ #include "util/memory.h"
+ #include "util/string_utils.h" // linux strnicmp definition
++#include <cstdio>
+ 
+ using namespace AGS::Common;
+ using namespace AGS::Common::Memory;

@@ -2,7 +2,7 @@
 
 Summary:	Engine for running games developed with AGS (Adventure Game Studio)
 Name:		ags
-Version:	3.5.0.23
+Version:	3.5.0.24
 %if %git
 Release:	1.%git.1
 Source0:	%{name}-%{git}.tar.xz
@@ -11,6 +11,7 @@ Release:	1
 Source0:	https://github.com/adventuregamestudio/ags/archive/v.%{version}.tar.gz
 %endif
 Patch0:		ags-no-static-linkage.patch
+Patch1:		ags-3.5.0.24-compile.patch
 License:	Artistic 2.0
 Group:		Games/Adventure
 Url:		http://github.com/adventuregamestudio
@@ -35,11 +36,10 @@ Engine for running games developed with AGS (Adventure Game Studio)
 
 %prep
 %if %git
-%setup -q -n %{name}-%{git}
+%autosetup -p1 -n %{name}-%{git}
 %else
-%setup -qn ags-v.%{version}
+%autosetup -p1 -n ags-v.%{version}
 %endif
-%autopatch -p1
 
 %build
 # Force clang -- gcc 6.x miscompiles ags
