@@ -2,7 +2,7 @@
 
 Summary:	Engine for running games developed with AGS (Adventure Game Studio)
 Name:		ags
-Version:	3.5.0.26
+Version:	3.5.0.27
 %if %git
 Release:	1.%git.1
 Source0:	%{name}-%{git}.tar.xz
