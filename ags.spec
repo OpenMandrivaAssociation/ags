@@ -1,17 +1,14 @@
-%define git 0
-
 Summary:	Engine for running games developed with AGS (Adventure Game Studio)
 Name:		ags
-Version:	3.5.0.32
-%if %git
-Release:	1.%git.1
-Source0:	%{name}-%{git}.tar.xz
-%else
+Version:	3.6.0.7
+%if ! 0%{?git}
 Release:	1
 Source0:	https://github.com/adventuregamestudio/ags/archive/v.%{version}.tar.gz
+%else
+Release:	0.%git.1
+Source0:	%{name}-%{git}.tar.xz
 %endif
-Patch0:		ags-no-static-linkage.patch
-Patch1:		ags-3.5.0.24-compile.patch
+#Patch1:		ags-3.5.0.24-compile.patch
 License:	Artistic 2.0
 Group:		Games/Adventure
 Url:		http://github.com/adventuregamestudio
@@ -25,6 +22,8 @@ BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xxf86vm)
 BuildRequires:	pkgconfig(xcursor)
+BuildRequires:	pkgconfig(sdl2)
+BuildRequires:	SDL2_sound-devel
 
 %description
 Engine for running games developed with AGS (Adventure Game Studio)
@@ -35,7 +34,7 @@ Engine for running games developed with AGS (Adventure Game Studio)
 #----------------------------------------------------------------------------
 
 %prep
-%if %git
+%if 0%{?git}
 %autosetup -p1 -n %{name}-%{git}
 %else
 %autosetup -p1 -n ags-v.%{version}
