@@ -13,7 +13,7 @@ Source0:	%{name}-%{git}.tar.xz
 #Patch1:		ags-3.5.0.24-compile.patch
 License:	Artistic 2.0
 Group:		Games/Adventure
-Url:		http://github.com/adventuregamestudio
+Url:		https://github.com/adventuregamestudio
 BuildRequires:	make
 BuildRequires:	pkgconfig(allegro)
 BuildRequires:	dumb-devel
