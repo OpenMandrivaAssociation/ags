@@ -2,7 +2,8 @@
 
 Summary:	Engine for running games developed with AGS (Adventure Game Studio)
 Name:		ags
-Version:	4.0.0.20
+Version:	3.6.3.2
+# Commit 8efe45084d9f1d11c910950bbd8ecc199f79e085 breaks The Crimson Diamond
 %if ! 0%{?git}
 Release:	1
 Source0:	https://github.com/adventuregamestudio/ags/releases/download/v%{version}/ags_%(echo %{version}|sed -e 's,\.0,.00,g')_source.tar.xz
@@ -26,6 +27,9 @@ BuildRequires:	pkgconfig(xxf86vm)
 BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	SDL2_sound-devel
+
+%patchlist
+ags-3.6.3.2-fix-thecrimsondiamond-crash.patch
 
 %description
 Engine for running games developed with AGS (Adventure Game Studio)
